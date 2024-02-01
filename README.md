@@ -20,11 +20,7 @@ O projeto consiste em um único arquivo Python (`app.py`) que contém todo o có
 - **Atualizar um Post Existente**: Uma requisição PUT para `/api/posts/<post_id>` permite atualizar um post existente.
 - **Deletar um Post**: Uma requisição DELETE para `/api/posts/<post_id>` permite deletar um post específico.
 
-## Executando o Projeto
-Para executar o projeto, você precisa ter o Python instalado em seu ambiente. Clone o repositório do projeto, navegue até a pasta do projeto no terminal e execute:
-
 ```bash
-python app.py
 # Importa as funções necessárias do módulo flask
 from flask import Flask, jsonify, request
 
@@ -96,4 +92,4 @@ def delete_post(post_id):
 if __name__ == '__main__':
     # Inicia o aplicativo Flask em modo de depuração
     app.run(debug=True)
-
+```
