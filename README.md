@@ -96,3 +96,4 @@ def delete_post(post_id):
 if __name__ == '__main__':
     # Inicia o aplicativo Flask em modo de depuração
     app.run(debug=True)
+```
