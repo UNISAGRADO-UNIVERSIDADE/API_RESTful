@@ -18,7 +18,7 @@ O projeto consiste em um único arquivo Python (`app.py`) que contém todo o có
 - **Obter um Post Específico**: Uma requisição GET para `/api/posts/<post_id>` retorna os detalhes de um post específico.
 - **Criar um Novo Post**: Uma requisição POST para `/api/posts` permite criar um novo post.
 - **Atualizar um Post Existente**: Uma requisição PUT para `/api/posts/<post_id>` permite atualizar um post existente.
-- **Deletar um Post**: Uma requisição DELETE para `/api/posts/<post_id>` permite deletar um post específico.
+- **Deletar um Post**: Uma requisição DELETE para `/api/posts/<post_id>` permite deletar um post específico .
 
 ## Executando o Projeto
 Para executar o projeto, você precisa ter o Python instalado em seu ambiente. Clone o repositório do projeto, navegue até a pasta do projeto no terminal e execute:
