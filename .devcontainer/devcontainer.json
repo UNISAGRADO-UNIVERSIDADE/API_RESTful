@@ -1,0 +1,24 @@
+{
+   "name": "Python-Flask",
+   "image": "mcr.microsoft.com/vscode/devcontainers/python:3.8",
+   "appPort": ["5000:5000"],
+   "customizations": {
+     "vscode": {
+       "settings": {
+         "terminal.integrated.defaultProfile.linux": "/bin/bash"
+       },
+       "extensions": [
+         "ms-python.python",
+         "ms-vscode.vscode-typescript-next",
+         "esbenp.prettier-vscode"
+       ]
+     }
+   },
+   "forwardPorts": [5000],
+   "postCreateCommand": "pip install -r requirements.txt",
+   "remoteUser": "vscode"
+ }
+ 
+
+ 
+  
