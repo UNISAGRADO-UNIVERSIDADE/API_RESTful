@@ -1,6 +1,6 @@
 {
    "name": "Python-Flask",
-   "image": "mcr.microsoft.com/vscode/devcontainers/python:3.8",
+   "image": "mcr.microsoft.com/vscode/devcontainers/python:3.12-1",
    "appPort": ["5000:5000"],
    "customizations": {
      "vscode": {
@@ -15,9 +15,10 @@
      }
    },
    "forwardPorts": [5000],
-   "postCreateCommand": "pip install -r requirements.txt",
+   "postCreateCommand": "/bin/bash -c \"python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt\"",
    "remoteUser": "vscode"
  }
+ 
  
 
  
