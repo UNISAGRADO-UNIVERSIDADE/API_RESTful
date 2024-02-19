@@ -1,6 +1,6 @@
 {
    "name": "Python-Flask",
-   "image": "mcr.microsoft.com/vscode/devcontainers/python:3.12-1",
+   "image": "mcr.microsoft.com/vscode/devcontainers/python:3.8",
    "appPort": ["5000:5000"],
    "customizations": {
      "vscode": {
