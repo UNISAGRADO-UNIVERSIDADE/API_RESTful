@@ -13,7 +13,7 @@ O projeto consiste em um único arquivo Python (`app.py`) que contém todo o có
 
 - `app.py`: O coração da nossa aplicação. Este arquivo contém a lógica da API e as rotas para lidar com as requisições HTTP.
 
-## Funcionalidades da API
+## Funcionalidades da  API
 - **Listar Todos os Posts**: Uma requisição GET para `/api/posts` retorna uma lista de todos os posts.
 - **Obter um Post Específico**: Uma requisição GET para `/api/posts/<post_id>` retorna os detalhes de um post específico.
 - **Criar um Novo Post**: Uma requisição POST para `/api/posts` permite criar um novo post.
