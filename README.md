@@ -1,4 +1,4 @@
-# Projeto Backend com Flask - VERSÃO COM VALIDAÇÃO
+# Projeto Backend com Flask - VERSÃO COM PAGINAÇÃO
 
 ## Introdução
 
