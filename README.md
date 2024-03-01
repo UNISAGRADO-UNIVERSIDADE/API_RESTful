@@ -41,6 +41,78 @@ python app.py
 
 
 ```
+# Exemplos de Chamadas no Postman
+
+## Posts
+
+### Listar Todos os Posts
+
+- **Método**: GET
+- **URL**: `/api/posts`
+- **Descrição**: Retorna uma lista de todos os posts, incluindo o nome do autor de cada post.
+
+### Obter um Post Específico
+
+- **Método**: GET
+- **URL**: `/api/posts/<post_id>`
+- **Descrição**: Retorna os detalhes de um post específico pelo seu ID.
+
+### Criar um Novo Post
+
+- **Método**: POST
+- **URL**: `/api/posts`
+- **Body** (JSON):
+
+  ```json
+  {
+    "title": "Título do Novo Post",
+    "content": "Conteúdo do novo post",
+    "author_id": 1
+  }
+```
+
+## Atualizar um Post Existente
+
+- **Método**: PUT
+- **URL**: `/api/posts/<post_id>`
+- **Body (JSON)**:
+
+  ```json
+  {
+    "title": "Título Atualizado",
+    "content": "Conteúdo atualizado"
+  }
+```
+- **Descrição** : Atualiza o título e/ou conteúdo de um post existente pelo seu ID.
+### Deletar um Post
+- **Método**: DELETE
+- **URL**: /api/posts/<post_id>
+- **Descrição** : Deleta um post específico pelo seu ID.
+
+## Usuários
+### Listar Todos os Usuários
+- **Método**: GET
+- **URL**: /api/users
+- **Descrição**: Retorna uma lista de todos os usuários.
+
+### Criar um Novo Usuário
+- **Método**: POST
+- **URL**: /api/users
+- **Body (JSON)**:
+```json
+{
+  "name": "Nome do Usuário",
+  "email": "email@dominio.com"
+}
+```
+- **Descrição**: Cria um novo usuário com o nome e e-mail fornecidos.
+### Deletar um Usuário
+- **Método**: DELETE
+- **URL**: /api/users/<user_id>
+- **Descrição**: Deleta um usuário específico pelo seu ID.
+
+
+
 ### =================================================================
 # Guia de Instalação do Python e Flask e Criação de um Projeto Flask
 
