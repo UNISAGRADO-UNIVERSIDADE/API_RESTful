@@ -6,78 +6,85 @@ app = Flask(__name__)
 
 # Uma lista de dicionários que simula um banco de dados em memória para armazenar posts
 posts = [
-    {'id': 1, 'title': 'Primeiro Post', 'content': 'Este é o conteúdo do primeiro post'},
-    {'id': 2, 'title': 'Segundo Post', 'content': 'Este é o conteúdo do segundo post'}
+    {'id': 1, 'title': 'Primeiro Post', 'content': 'Este é o conteúdo do primeiro post', 'author_id': 1},
+    {'id': 2, 'title': 'Segundo Post', 'content': 'Este é o conteúdo do segundo post', 'author_id': 2}
 ]
 
+# Uma lista de dicionários que simula um banco de dados em memória para armazenar usuários
 users = [
-    {'id': 1, 'username': 'user1', 'email': 'user1@example.com'},
-    {'id': 2, 'username': 'user2', 'email': 'user2@example.com'},
+    {'id': 1, 'name': 'Usuário 1', 'email': 'usuario1@example.com'},
+    {'id': 2, 'name': 'Usuário 2', 'email': 'usuario2@example.com'}
 ]
 
-@app.route('/api/users', methods=['GET'])
-def get_users():
-    return jsonify(users)
-
-
-# Define um endpoint GET para '/api/posts' que retorna a lista de todos os posts
+# Endpoint GET para '/api/posts' que retorna a lista de todos os posts, incluindo o nome do autor
 @app.route('/api/posts', methods=['GET'])
 def get_posts():
-    # Converte a lista de posts para JSON e retorna com o status HTTP 200 (OK)
-    return jsonify(posts), 200
+    posts_with_authors = []
+    for post in posts:
+        author = next((user for user in users if user['id'] == post.get('author_id')), None)
+        if author:
+            post_with_author = post.copy()
+            post_with_author['author_name'] = author['name']
+            posts_with_authors.append(post_with_author)
+        else:
+            posts_with_authors.append(post)
+    return jsonify(posts_with_authors), 200
 
-# Define um endpoint GET para '/api/posts/<int:post_id>' que retorna um post específico pelo seu ID
+# Endpoint GET para '/api/posts/<int:post_id>' que retorna um post específico pelo seu ID
 @app.route('/api/posts/<int:post_id>', methods=['GET'])
 def get_post(post_id):
-    # Procura na lista de posts o post com o ID fornecido, retorna None se não for encontrado
     post = next((post for post in posts if post['id'] == post_id), None)
-    # Se um post for encontrado, retorna o post como JSON com status HTTP 200 (OK)
     if post is not None:
         return jsonify(post), 200
-    # Se não, retorna uma mensagem de erro como JSON com status HTTP 404 (Not Found)
     else:
         return jsonify({'message': 'Post not found'}), 404
 
-# Define um endpoint POST para '/api/posts' que cria um novo post
+# Endpoint POST para '/api/posts' que cria um novo post
 @app.route('/api/posts', methods=['POST'])
 def create_post():
-    # Obtém os dados JSON enviados com a requisição POST
     new_post = request.get_json()
-    # Atribui um novo ID ao post, que é um mais que o número de posts existentes
     new_post['id'] = len(posts) + 1
-    # Adiciona o novo post à lista de posts
     posts.append(new_post)
-    # Retorna o novo post como JSON com status HTTP 201 (Created)
     return jsonify(new_post), 201
 
-# Define um endpoint PUT para '/api/posts/<int:post_id>' que atualiza um post existente pelo seu ID
+# Endpoint PUT para '/api/posts/<int:post_id>' que atualiza um post existente pelo seu ID
 @app.route('/api/posts/<int:post_id>', methods=['PUT'])
 def update_post(post_id):
-    # Procura na lista de posts o post com o ID fornecido, retorna None se não for encontrado
     post = next((post for post in posts if post['id'] == post_id), None)
-    # Se um post for encontrado, atualiza-o com os dados enviados
     if post is not None:
         data = request.get_json()
         post.update(data)
-        # Retorna o post atualizado como JSON com status HTTP 200 (OK)
         return jsonify(post), 200
-    # Se não, retorna uma mensagem de erro como JSON com status HTTP 404 (Not Found)
     else:
         return jsonify({'message': 'Post not found'}), 404
 
-# Define um endpoint DELETE para '/api/posts/<int:post_id>' que deleta um post específico pelo seu ID
+# Endpoint DELETE para '/api/posts/<int:post_id>' que deleta um post específico pelo seu ID
 @app.route('/api/posts/<int:post_id>', methods=['DELETE'])
 def delete_post(post_id):
-    # A palavra-chave 'global' é usada para modificar a variável global 'posts'
     global posts
-    # Cria uma nova lista de posts que não inclui o post com o ID fornecido
     posts = [post for post in posts if post['id'] != post_id]
-    # Retorna uma mensagem de sucesso como JSON com status HTTP 204 (No Content)
     return jsonify({'message': 'Post deleted'}), 204
+
+# Novo endpoint GET para '/api/users' que retorna uma lista de usuários
+@app.route('/api/users', methods=['GET'])
+def get_users():
+    return jsonify(users), 200
+
+# Novo endpoint POST para '/api/users' que cria um novo usuário
+@app.route('/api/users', methods=['POST'])
+def create_user():
+    new_user = request.get_json()
+    new_user['id'] = len(users) + 1
+    users.append(new_user)
+    return jsonify(new_user), 201
+
+# Novo endpoint DELETE para '/api/users/<int:user_id>' que deleta um usuário específico pelo seu ID
+@app.route('/api/users/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    global users
+    users = [user for user in users if user['id'] != user_id]
+    return jsonify({'message': 'User deleted'}), 204
 
 # Verifica se o arquivo é o módulo principal e executa o aplicativo Flask
 if __name__ == '__main__':
-    # Inicia o aplicativo Flask em modo de depuração
     app.run(debug=True)
-
-
