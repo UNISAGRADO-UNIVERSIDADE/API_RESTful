@@ -77,12 +77,6 @@ posts = [
     "content": "Conteúdo atualizado"
   }
 ```
-
-
-Claro, aqui está o ajuste na formatação do Markdown conforme solicitado, focando na descrição para atualizar e deletar um post:
-
-markdown
-Copy code
 ### Atualizar um Post Existente
 
 - **Método**: PUT
@@ -93,11 +87,13 @@ Copy code
     "title": "Título Atualizado",
     "content": "Conteúdo atualizado"
   }
+
 ### Atualizar um Post Existente
 
 - **Método**: `PUT`
 - **URL**: `/api/posts/<post_id>`
 - **Body** (JSON):
+
     ```json
     {
       "title": "Título Atualizado",
