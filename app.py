@@ -10,6 +10,16 @@ posts = [
     {'id': 2, 'title': 'Segundo Post', 'content': 'Este é o conteúdo do segundo post'}
 ]
 
+users = [
+    {'id': 1, 'username': 'user1', 'email': 'user1@example.com'},
+    {'id': 2, 'username': 'user2', 'email': 'user2@example.com'},
+]
+
+@app.route('/api/users', methods=['GET'])
+def get_users():
+    return jsonify(users)
+
+
 # Define um endpoint GET para '/api/posts' que retorna a lista de todos os posts
 @app.route('/api/posts', methods=['GET'])
 def get_posts():
