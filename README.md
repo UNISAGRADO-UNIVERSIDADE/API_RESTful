@@ -1,4 +1,4 @@
-# Projeto Backend com Flask
+# Projeto Backend com Flask - (ADICIONANDO FUNÇÕES DE USUÁRIOS)
 
 ## Introdução
 
