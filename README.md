@@ -37,6 +37,7 @@ posts = [
     {'id': 1, 'title': 'Primeiro Post', 'content': 'Este é o conteúdo do primeiro post'},
     {'id': 2, 'title': 'Segundo Post', 'content': 'Este é o conteúdo do segundo post'}
 ]
+```
 
 # Exemplos de Chamadas no Postman
 
@@ -65,12 +66,13 @@ posts = [
     "content": "Conteúdo do novo post",
     "author_id": 1
   }
-
+```
 ### Atualizar um Post Existente
 
 - **Método**: PUT
 - **URL**: `/api/posts/<post_id>`
 - **Body** (JSON):
+
   ```json
   {
     "title": "Título Atualizado",
@@ -82,11 +84,13 @@ posts = [
 - **Método**: PUT
 - **URL**: `/api/posts/<post_id>`
 - **Body** (JSON):
+
   ```json
   {
     "title": "Título Atualizado",
     "content": "Conteúdo atualizado"
   }
+```
 
 ### Atualizar um Post Existente
 
