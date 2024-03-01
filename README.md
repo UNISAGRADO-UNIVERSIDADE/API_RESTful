@@ -38,14 +38,13 @@ Para executar o projeto, você precisa ter o Python instalado em seu ambiente. C
 
 ```bash
 python app.py
-
-
 ```
-# Exemplos de Chamadas no Postman
 
-## Posts
+ Exemplos de Chamadas no Postman
 
-### Listar Todos os Posts
+Posts
+
+## Listar Todos os Posts
 
 - **Método**: GET
 - **URL**: `/api/posts`
@@ -69,7 +68,7 @@ python app.py
     "content": "Conteúdo do novo post",
     "author_id": 1
   }
-```
+  ```
 
 ## Atualizar um Post Existente
 
@@ -82,39 +81,48 @@ python app.py
     "title": "Título Atualizado",
     "content": "Conteúdo atualizado"
   }
-```
+  ```
+
 - **Descrição** : Atualiza o título e/ou conteúdo de um post existente pelo seu ID.
+
 ### Deletar um Post
+
 - **Método**: DELETE
 - **URL**: /api/posts/<post_id>
 - **Descrição** : Deleta um post específico pelo seu ID.
 
-## Usuários
+Usuários
+
 ### Listar Todos os Usuários
+
 - **Método**: GET
 - **URL**: /api/users
 - **Descrição**: Retorna uma lista de todos os usuários.
 
 ### Criar um Novo Usuário
+
 - **Método**: POST
 - **URL**: /api/users
 - **Body (JSON)**:
+
 ```json
 {
   "name": "Nome do Usuário",
   "email": "email@dominio.com"
 }
 ```
+
 - **Descrição**: Cria um novo usuário com o nome e e-mail fornecidos.
+
 ### Deletar um Usuário
+
 - **Método**: DELETE
 - **URL**: /api/users/<user_id>
 - **Descrição**: Deleta um usuário específico pelo seu ID.
 
-
-
 ### =================================================================
-# Guia de Instalação do Python e Flask e Criação de um Projeto Flask
+
+## Guia de Instalação do Python e Flask e Criação de um Projeto Flask
 
 ## Instalando o Python
 
@@ -145,6 +153,7 @@ Com o Python instalado, você pode instalar o Flask, que é um microframework we
 
 2. **Instale o Flask**:
    - Com o ambiente virtual ativado, instale o Flask usando o pip, o gerenciador de pacotes do Python:
+
      ```bash
      pip install Flask
      ```
@@ -187,18 +196,23 @@ GitHub Codespaces é uma plataforma de desenvolvimento baseada na nuvem que perm
 ## Configurando o Codespace para o Projeto Flask:
 
 ### Crie um Repositório no GitHub:
+
 Primeiro, assegure-se de que seu projeto esteja em um repositório GitHub. Se ainda não o fez, crie um repositório e faça o push do seu código.
 
 ### Acesse GitHub Codespaces:
+
 Navegue até o repositório do seu projeto no GitHub. Clique no botão "Code" e, no menu dropdown, selecione "Open with Codespaces". Em seguida, clique em "New codespace".
 
 ### Configuração Automática:
+
 O Codespaces preparará automaticamente um ambiente de desenvolvimento baseado na configuração do seu repositório. Se o seu projeto necessitar de dependências específicas ou configurações de ambiente, você pode personalizar o processo de criação do codespace adicionando um arquivo `.devcontainer.json` ao seu repositório.
 
 ### Desenvolva no Navegador:
+
 Uma vez inicializado, o Codespace fornecerá um ambiente de desenvolvimento VS Code completo no seu navegador. Você pode editar arquivos, executar comandos no terminal integrado e depurar seu código diretamente no browser.
 
 ## Executando o Projeto Flask no Codespaces:
+
 Abra o terminal integrado no Codespaces e execute o comando `python app.py` para iniciar sua aplicação Flask. O Codespaces suporta o encaminhamento de portas, permitindo acessar sua aplicação Flask diretamente do navegador.
 
 ## Vantagens do Uso de GitHub Codespaces:
